@@ -34,8 +34,7 @@ class Solution:
         for j in result[0]:  # reverse
             res = res + j * (10 ** i)
             i = i - 1
-        if res > ((
-                          2 ** 32) // 2):  # reverse integer should be a 32bit signed number: 32bit- like a space which has the size of 2**31
+        if res > ((2 ** 32) // 2):  # reverse integer should be a 32bit signed number: 32bit- like a space which has the size of 2**31
             return 0  # for here, reverse integer is a signed number,therefor the range of the space should be [-(2**31)/2,(2**31)/2]
 
         if mark == 1:
