@@ -1,4 +1,5 @@
 # leetcode1
 
-Solution of problems in easy level
+Solutions of problems (easy level in leetcode)
+
 python3
