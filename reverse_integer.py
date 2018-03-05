@@ -12,8 +12,7 @@ class Solution:
         res_q =x
         mark = 0
 
-        def divs(
-                x):  # a function to get the list of remainder and a quotient which can be used as input in next iteration
+        def divs(x):  # a function to get the list of remainder and a quotient which can be used as input in next iteration
             res_mod = x % 10
             quotient = x // 10
             mod.append(res_mod)
