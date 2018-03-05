@@ -1,0 +1,2 @@
+# leetcode1
+easy
