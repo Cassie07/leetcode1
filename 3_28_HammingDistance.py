@@ -1,3 +1,35 @@
+'''461. Hamming Distance
+
+DescriptionHintsSubmissionsDiscussSolution
+The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+
+Given two integers x and y, calculate the Hamming distance.
+
+Note:
+0 ≤ x, y < 231.
+
+Example:
+
+Input: x = 1, y = 4
+
+Output: 2
+
+Explanation:
+1   (0 0 0 1)
+4   (0 1 0 0)
+       ↑   ↑
+
+The above arrows point to positions where the corresponding bits are different.
+'''
+'''1. generate tobin():
+         (1) computing the remainder and add it into the list until the divisor not larger than 0
+         (2) add the remainder of the divisor into the list
+         (generate a reversed order of the real binary form)
+   2. generate hammingDistance(): 
+         (1) the length of two number when they transfer to list
+         (2) when they are no in the same length, complement the short one to the same length as the long one
+         (3) reversing them so that they can be the true binary form
+         (4) compare each bit of same index in those two list, if they are not same, count one time'''
 class Solution:
     def tobin(self, x):
         remainder = []
