@@ -16,6 +16,16 @@ Output: 0
 In this case, no transaction is done, i.e. max profit = 0.
 """
 '''update the smallest and largest difference dynamically'''
+'''Ex. like[2,7,1,4], the first difference=abs(2-7)=5 and the first smallest=2 , 
+       the temporary variable different=5.Then, 2-1=1>0, update the smallest. 
+       Thus, the smallest=1, the new difference=abs(1-4)=3. 
+       Because the new difference(3) is not larger than different(the old difference=5), 
+       the different(temporary maxprofit) should not be update. After all loops, we return
+       the final different(that is the final maxprofit now)
+       (ps: all difference here are abs(difference) in code and difference is profit, 
+            different is a terminal variable to save the temporary maxprofit
+            )
+       '''
 class Solution:
     def maxProfit(self, prices):
         """
