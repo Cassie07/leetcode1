@@ -10,7 +10,7 @@
 # Solution:
 # Compare the elements in two lists. Add the smaller one into the list and update the pointer. 
 # When one of the lists is traversed, add the rest elements of another list into the returned list directly.
-# ************************************************************************************
+# **********************************************************************************************************
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
