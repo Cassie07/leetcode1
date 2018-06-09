@@ -32,3 +32,6 @@ public class Solution {
         return false;
     }
 }
+/**
+* if there is a cycle, fast will catch up slow.
+*/
