@@ -1,0 +1,5 @@
+Palindrome string/list/... problem:
+1. use a stack save this string/list/...(like to reverse this string/list/...)
+2. compare it with the original one.
+if there is a palindrome, the first and last element should be the same. And each pair of elements in this string/list will also
+be the same.
