@@ -33,15 +33,15 @@ class Solution {
                 head=head.next;
             }
         }*/
-        ListNode tmp=head;
-        Stack<Integer> s=new Stack();
+        ListNode tmp=head;     /** this is a temporary pointer which can push items into stack and not change the position of head pointer */
+        Stack<Integer> s=new Stack(); /** add items into a stack*/
         while(tmp!=null){
             s.push(tmp.val);
             tmp=tmp.next;
         }
-        while(head!=null){
-            if (head.val==s.pop()){
-                head=head.next;
+        while(head!=null){     /** compare the value of each items in linked list with the items in stack*/
+            if (head.val==s.pop()){ /** there is a character of stack: first in, last out. Therefore, there first item be poped is the last item in the linked list*/
+                head=head.next;  /** if there is a palindrome, the first and last item should be the same. And all pair of items should follow this rule */
             }else{
                 return false;
             }
