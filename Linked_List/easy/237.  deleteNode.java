@@ -40,3 +40,8 @@ class Solution {
         node.next=node.next.next;
     }
 }
+/** Please pay attention that the input is not head pointer, it is just a node which should be removed. 
+    In general, we will change the next pointer of node which is previous node of the target node to the node which is after
+    the target node. But now, there is no such pointer to determine those node. Therefore, we can just use the target node.
+    we can change the target node as the node next the target node then connect it with the seconde next node of the target node
+ */
