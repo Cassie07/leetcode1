@@ -26,12 +26,12 @@ class Solution {
         ListNode tmp=l3;
         ListNode pre=l3;
         int count=0;
-        while(l1!=null&&l2!=null){
-            int sum=l1.val+l2.val;
+        while(l1!=null&&l2!=null){                // add nodes which in the same position of two linked list
+            int sum=l1.val+l2.val;                // when one of the linked list become null, we stop our loop.
             if(sum>=10){
-                l3.next=new ListNode(1);
-                l3.val=l3.val+sum%10;
-            }else{
+                l3.next=new ListNode(1);          // if the sum of two nodes larger than 10, we should add a carry to next node.
+                l3.val=l3.val+sum%10;             // my strategy is add a new node no matter we need carry or not.
+            }else{                                // if sum>=10, we set the next node to 1, else we set it to 0.
                 l3.val=l3.val+sum;
                 if(l3.val>=10){
                     l3.val=l3.val%10;
@@ -47,8 +47,8 @@ class Solution {
             count=sum;
         }
         
-        if(l1==null){
-            while(l2!=null){
+        if(l1==null){                                // if l1 is null, we just need to care about l2, and vice versa.
+            while(l2!=null){                        
                 if(l3.val==1){
                     count=l2.val+l3.val;
                     if(count>=10){
@@ -87,8 +87,8 @@ class Solution {
             }
         }
         
-        if(l3.val==0){
-            pre.next=null;
+        if(l3.val==0){        // there may occur a node which is 0. But we do not need this kind of node, thus we should remove
+            pre.next=null;    // such node before we return the final linked list.
             return tmp;
         }else{
             return tmp;
