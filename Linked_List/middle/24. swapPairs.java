@@ -21,9 +21,8 @@ You may not modify the values in the list's nodes, only nodes itself may be chan
 class Solution {
     public ListNode swapPairs(ListNode head) {
         ListNode first=head;
-        ListNode second=head;
-        ListNode tmp=head;
-        ListNode ret=new ListNode(0);
+        ListNode second=head; 
+        ListNode ret=new ListNode(0);     // this is a neccessary node before we do reversing.
         ret.next=head;
         ListNode pre=ret;
         if(head==null){
@@ -32,14 +31,14 @@ class Solution {
         if(head.next==null){
             return head;
         }
-        while(first!=null){
-            second=first.next;
-            if(second==null){
-                return ret.next;
+        while(first!=null){        
+            second=first.next;      
+            if(second==null){        // when the number of node in list is odd. The node cannot consist pair with other node
+                return ret.next;     // do not need to reverse
             }
-            first.next=second.next;
-            second.next=first;
-            pre.next=second;
+            first.next=second.next; // connect the first node to the third node
+            second.next=first;      // connect the second node to the first node
+            pre.next=second;        // connect the node before the first node to the second node
             pre=first;
             first=first.next;
         }
