@@ -29,27 +29,27 @@ class Solution {
         }
         ListNode pre=new ListNode(0);
         pre.next=head;
-        ListNode ret=pre;
+        ListNode ret=pre;                // this is a node that we used to return.
         ListNode fast=head.next;
         ListNode slow=head;
-        int or=head.val;
-        int re=or-10;
+        int or=head.val;                 // !!! this part is to avoid the value of re is equal to the first node and the second node
+        int re=or-10;                    // if it is equal to the first node but the first node and the second node, the first ndoe will be overlook.
         while(fast!=null){
-            if(fast.val==slow.val){
-                re=pre.next.val;
-                pre.next=fast.next;
-                if (pre.next==null){
-                    return ret.next;
+            if(fast.val==slow.val){      // There is duplicate between two nodes:
+                re=pre.next.val;         // give the value fo duplicate to re(it will be used in next part)
+                pre.next=fast.next;      // remove slow and fast(duplicate)
+                if (pre.next==null){     // if there only two same nodes in the linked list, there will be a wrong compile if there
+                    return ret.next;     // is no such codes.
                 }
-                slow=pre.next;
+                slow=pre.next;           // update slow and fast.
                 fast=slow.next;
-            }else{
-                if(slow.val==re){
-                    pre.next=fast;
+            }else{                       // there is no duplicate between nodes:
+                if(slow.val==re){        // when the number of duplicate is odd(there will be a node of duplicate not be removed)
+                    pre.next=fast;       // remove it and update slow and fast
                     slow=fast;
                     fast=fast.next;
-                }else{
-                    pre=pre.next;
+                }else{                   // when number of duplicate is even or the usual status(different nodes)
+                    pre=pre.next;        // update
                     if(pre.next==null){
                         return ret.next;
                     }
@@ -58,7 +58,7 @@ class Solution {
                 }
             }
         }
-        if(slow.val==re){
+        if(slow.val==re){              // if there is only duplicate in the linked list and the number of them are odd.
             pre.next=fast;
         }
         return ret.next;
