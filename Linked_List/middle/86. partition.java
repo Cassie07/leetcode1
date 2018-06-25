@@ -32,7 +32,7 @@ class Solution {
         ListNode headr=right;
         int countl=0;
         int countr=0;
-        while(head!=null){
+        while(head!=null){                
             if(head.val<x){
                 rl=left;
                 left.val=head.val;
@@ -60,3 +60,9 @@ class Solution {
         }
     }
 }
+
+/** create two new linked list: left and right. If the value of the current node is smaller than the target value, add it to 
+    the left linked list. If not, add it to the rifht linked list.
+    Connect two linked list.
+    (remove the extra zero node)
+*/
