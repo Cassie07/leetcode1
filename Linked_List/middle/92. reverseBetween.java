@@ -30,12 +30,12 @@ class Solution {
         ListNode ret=pre;
         int count=1;
         while(count<=n){
-            if(count==m){
+            if(count==m){        // Find the start position of the reversing sublist
                 start=cur;
                 prestart=pre;
                 pre=pre.next;
                 cur=cur.next;
-            }else if(count>m){
+            }else if(count>m){   // Reverse
                 end=cur;
                 tmp=cur.next;
                 cur.next=pre;
@@ -47,8 +47,10 @@ class Solution {
             }
             count++;
         }
-        prestart.next=end;
+        prestart.next=end;     // connect the sublist with the original list
         start.next=cur;
         return ret.next;
     }
 }
+
+/** Find the start of the reverse list, and begin the reversing process at this position.*/
