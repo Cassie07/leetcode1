@@ -28,14 +28,17 @@ class Solution {
         ListNode ret=head;
         ListNode record=head;
         ListNode first=head;
+        // count the sum of the nodes
         int count=0;
         while(head!=null){
             count++;
             head=head.next;
         }
+        // return the linked list which not need to be reversed
         if(count<=2){
             return head;
         }else{
+            // find the first position of reversing sublist
             int n=(count-1)/2;
             int k=count-n;
             ListNode prestart=new ListNode(0);
@@ -44,7 +47,7 @@ class Solution {
                 prestart=record;
                 record=record.next;
             }
-
+            // reverse the sublist: 1->2->3->4->5 to 1->2->3->5->4
             ListNode pre=record;
             ListNode cur=record.next;
             ListNode tmp=new ListNode(0);
@@ -56,15 +59,15 @@ class Solution {
             }
             record.next=null;
             prestart.next=pre;
-        
+            // reorder the linked list: 1->2->3->5->4 to 1->5->2->4->3
             ListNode second=pre;
             while(second!=null){
-                prestart.next=second.next;
-                second.next=first.next;
+                prestart.next=second.next; // prepare for updating the second pointer
+                second.next=first.next;  //prepare for updating the first pointer and reorder
                 first.next=second;
                 first=second.next;
                 second=prestart.next;
-            }
+            }                           // the first and second step in loop can save the memory to avoid memory exceed.
             return ret;
         }
     }
