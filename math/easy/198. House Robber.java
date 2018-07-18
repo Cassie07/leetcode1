@@ -19,3 +19,19 @@ Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (m
              Total amount you can rob = 2 + 9 + 1 = 12.
 */
 
+class Solution {
+public int rob(int[] num) {
+    int a=0;
+    int b=0;
+    int k=0;
+    while(k<num.length){
+        if(k%2!=0){
+            a=Math.max(a+num[k],b);
+        }else{
+            b=Math.max(a,b+num[k]);
+        }
+        k++;
+    }
+    return Math.max(a,b);
+    }
+}
