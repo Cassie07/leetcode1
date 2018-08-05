@@ -22,11 +22,13 @@ Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).
 import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
 import java.util.Arrays;
 public class Solution {
+    // test function
     public static void main(String[] args) {
         int[] num={1, 2, 3, 4, 5, 1, 2, 3, 4, 5};
         Solution s= new Solution();
         System.out.println(s.robcompare(num));
     }
+    // dp function
     private int rob(int[] num,int left,int right) {
         int[] nums=Arrays.copyOfRange(num,left,right);
         int n=nums.length;
@@ -45,6 +47,7 @@ public class Solution {
         }
         return dp[i-1];
     }
+    // compare two situations
     public int robcompare(int[] num) {
         int n=num.length;
         if(n==0){
@@ -53,6 +56,8 @@ public class Solution {
         if (n<=1){
             return num[0];
         }
-        return Math.max(rob(num,0,n-1),rob(num,1,n));
+        return Math.max(rob(num,0,n-1),rob(num,1,n));// compare sum from nums[0:n-2] and nums[1:n-1]
     }
 }
+
+// Keypoint: the first house and the last house cannot occur at the same time. Thus we can design two process to find two maxium sum.
