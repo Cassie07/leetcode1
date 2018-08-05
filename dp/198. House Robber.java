@@ -18,7 +18,28 @@ Output: 12
 Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
              Total amount you can rob = 2 + 9 + 1 = 12.
 */
+// An easy understand DP method
+class Solution {
+public int rob(int[] num) {
+    int n=num.length;
+    if(n==0){
+        return 0;
+    }
+    if (n<=1){
+        return num[0];
+    }
+    int[] dp=new int[n];
+    dp[0]=num[0];
+    dp[1]=Math.max(num[1],num[0]);
+    int i;
+    for(i=2;i<n;i++){
+        dp[i]=Math.max(dp[i-1],dp[i-2]+num[i]);
+    }
+    return dp[i-1];
+    }
+}
 
+// Method2
 class Solution {
 public int rob(int[] num) {
     int a=0;
