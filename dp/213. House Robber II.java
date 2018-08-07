@@ -29,7 +29,7 @@ public class Solution {
         System.out.println(s.robcompare(num));
     }
     // dp function
-    private int rob(int[] num,int left,int right) {
+    private int robcompare(int[] num,int left,int right) {
         int[] nums=Arrays.copyOfRange(num,left,right);
         int n=nums.length;
         if(n==0){
@@ -48,7 +48,7 @@ public class Solution {
         return dp[i-1];
     }
     // compare two situations
-    public int robcompare(int[] num) {
+    public int rob(int[] num) {
         int n=num.length;
         if(n==0){
             return 0;
@@ -56,7 +56,7 @@ public class Solution {
         if (n<=1){
             return num[0];
         }
-        return Math.max(rob(num,0,n-1),rob(num,1,n));// compare sum from nums[0:n-2] and nums[1:n-1]
+        return Math.max(robcompare(num,0,n-1),robcompare(num,1,n));// compare sum from nums[0:n-2] and nums[1:n-1]
     }
 }
 
