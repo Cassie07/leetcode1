@@ -27,7 +27,7 @@ Input: m = 7, n = 3
 Output: 28
 */
 
-// n：row，m：line 
+// n：row，m：column 
 class Solution {
     public int uniquePaths(int m, int n) {
         Integer[][] dp=new Integer[n][m];
